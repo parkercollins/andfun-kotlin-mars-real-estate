@@ -41,10 +41,6 @@ private val moshi = Moshi.Builder()
  */
 private val retrofit = Retrofit.Builder()
         .addConverterFactory(MoshiConverterFactory.create(moshi))
-        // TODO (02) Use .addCallAdapterFactory to add the CoroutineCallAdapterFactory
-        // *Solution deviates from course video*
-        // CoroutineCallAdapterFactory is taken from deprecated dependency. It is no longer needed.
-        // SKIP THIS STEP
         .baseUrl(BASE_URL)
         .build()
 
@@ -53,19 +49,12 @@ private val retrofit = Retrofit.Builder()
  */
 interface MarsApiService {
     /**
-     * Returns a Retrofit callback that delivers a [List] of [MarsProperty]
+
      * The @GET annotation indicates that the "realestate" endpoint will be requested with the GET
      * HTTP method
      */
-    // TODO (03) Change the return type from our getProperties call to Deferred
-    // *Solution deviates from course video*
-    // Retrofit now has built-in Suspend support, which should be used in place of Deferred.
-    // See: https://github.com/square/retrofit/blob/master/CHANGELOG.md#version-260-2019-06-05
-    // Remove the code above and uncomment the corresponding code below.
-
     @GET("realestate")
     suspend fun getProperties(): List<MarsProperty>
-
 }
 
 /**
