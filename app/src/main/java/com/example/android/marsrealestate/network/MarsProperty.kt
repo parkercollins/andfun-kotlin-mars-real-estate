@@ -18,6 +18,7 @@
 package com.example.android.marsrealestate.network
 
 import android.os.Parcelable
+import kotlinx.parcelize.Parcelize
 import com.squareup.moshi.Json
 
 /**
