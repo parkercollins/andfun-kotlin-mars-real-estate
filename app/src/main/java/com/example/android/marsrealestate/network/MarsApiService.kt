@@ -57,16 +57,14 @@ interface MarsApiService {
      * The @GET annotation indicates that the "realestate" endpoint will be requested with the GET
      * HTTP method
      */
-    @GET("realestate")
-    fun getProperties(): Call<List<MarsProperty>>
     // TODO (03) Change the return type from our getProperties call to Deferred
     // *Solution deviates from course video*
     // Retrofit now has built-in Suspend support, which should be used in place of Deferred.
     // See: https://github.com/square/retrofit/blob/master/CHANGELOG.md#version-260-2019-06-05
     // Remove the code above and uncomment the corresponding code below.
 
-//    @GET("realestate")
-//    suspend fun getProperties(): List<MarsProperty>
+    @GET("realestate")
+    suspend fun getProperties(): List<MarsProperty>
 
 }
 
