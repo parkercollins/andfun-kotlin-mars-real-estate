@@ -27,35 +27,47 @@ import retrofit2.http.GET
 
 private const val BASE_URL = "https://mars.udacity.com/"
 
-
-// TODO (04) Use the Moshi Builder to create a Moshi object with the KotlinJsonAdapterFactory
+/**
+ * Build the Moshi object that Retrofit will be using, making sure to add the Kotlin adapter for
+ * full Kotlin compatibility.
+ */
 private val moshi = Moshi.Builder()
-    .add(KotlinJsonAdapterFactory())
-    .build()
-
+        .add(KotlinJsonAdapterFactory())
+        .build()
 
 /**
  * Use the Retrofit builder to build a retrofit object using a Moshi converter with our Moshi
- * object pointing to the desired URL
+ * object.
  */
 private val retrofit = Retrofit.Builder()
-        // TODO (05) Change the ConverterFactory to the MoshiConverterFactory with our Moshi Object
-    .addConverterFactory(MoshiConverterFactory.create(moshi))
+        .addConverterFactory(MoshiConverterFactory.create(moshi))
+        // TODO (02) Use .addCallAdapterFactory to add the CoroutineCallAdapterFactory
+        // *Solution deviates from course video*
+        // CoroutineCallAdapterFactory is taken from deprecated dependency. It is no longer needed.
+        // SKIP THIS STEP
         .baseUrl(BASE_URL)
         .build()
 
 /**
  * A public interface that exposes the [getProperties] method
  */
-// TODO (06) Update the MarsApiService to return a List of MarsProperty Objects
 interface MarsApiService {
     /**
-     * Returns a Retrofit callback that delivers a String
+     * Returns a Retrofit callback that delivers a [List] of [MarsProperty]
      * The @GET annotation indicates that the "realestate" endpoint will be requested with the GET
      * HTTP method
      */
     @GET("realestate")
     fun getProperties(): Call<List<MarsProperty>>
+    // TODO (03) Change the return type from our getProperties call to Deferred
+    // *Solution deviates from course video*
+    // Retrofit now has built-in Suspend support, which should be used in place of Deferred.
+    // See: https://github.com/square/retrofit/blob/master/CHANGELOG.md#version-260-2019-06-05
+    // Remove the code above and uncomment the corresponding code below.
+
+//    @GET("realestate")
+//    suspend fun getProperties(): List<MarsProperty>
+
 }
 
 /**
