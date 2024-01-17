@@ -35,6 +35,9 @@ class DetailFragment : Fragment() {
         val application = requireNotNull(activity).application
         val binding = FragmentDetailBinding.inflate(inflater)
         binding.lifecycleOwner = this
+        // TODO (14) Get the selectedProperty from the fragment arguments with DetailFragmentArgs
+        // TODO (15) Create the DetailViewModelFactory using the marsProperty and application
+        // TODO (16) Get the DetailViewModel from the DetailViewModelFactory and set it in the binding
         return binding.root
     }
 }

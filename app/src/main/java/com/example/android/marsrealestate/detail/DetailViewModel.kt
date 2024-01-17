@@ -26,4 +26,6 @@ import com.example.android.marsrealestate.network.MarsProperty
  * The [ViewModel] that is associated with the [DetailFragment].
  */
 class DetailViewModel(@Suppress("UNUSED_PARAMETER")marsProperty: MarsProperty, app: Application) : AndroidViewModel(app) {
+    // TODO (01) Add selected MarsProperty LiveData, and initialize during init, removing @Suppress
+    // TODO (18) Add displayPropertyPrice and displayPropertytype LiveData Transformations.map
 }

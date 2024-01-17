@@ -50,6 +50,8 @@ class OverviewViewModel : ViewModel() {
     val properties: LiveData<List<MarsProperty>>
         get() = _properties
 
+    // TODO (05) Add a _navigateToSelectedProperty MutableLiveData externalized as LiveData
+
 
 
     /**
@@ -79,4 +81,6 @@ class OverviewViewModel : ViewModel() {
 
     /**
      */
+
+    // TODO (06) Add displayPropertyDetails and displayPropertyDetailsComplete methods
 }
