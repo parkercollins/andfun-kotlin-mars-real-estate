@@ -46,5 +46,8 @@
             app:spanCount="2"
             tools:itemCount="16"
             tools:listitem="@layout/grid_view_item" />
+
+        <!-- TODO (05) Add ImageView to the ConstraintLayout, wrap_content, same constraints as RecyclerView -->
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

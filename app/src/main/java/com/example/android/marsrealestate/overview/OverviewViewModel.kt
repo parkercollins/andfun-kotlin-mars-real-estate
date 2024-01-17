@@ -29,12 +29,14 @@ import retrofit2.Callback
 import retrofit2.Response
 //import javax.security.auth.callback.Callback
 
+// TODO (01) Create a MarsApiStatus enum with the LOADING, ERROR, and DONE states
 /**
  * The [ViewModel] that is attached to the [OverviewFragment].
  */
 class OverviewViewModel : ViewModel() {
 
     // The internal MutableLiveData String that stores the most recent response status
+    // TODO (02) Change _status to type MarsApiStatus
     private val _status = MutableLiveData<String>()
 
     // The external immutable LiveData for the status String
@@ -64,6 +66,7 @@ class OverviewViewModel : ViewModel() {
      * await to get the result of the transaction.
      */
     private fun getMarsRealEstateProperties() {
+        // TODO (03) Set the correct status for LOADING, ERROR, and DONE
         viewModelScope.launch {
             try {
                 var listResult = MarsApi.retrofitService.getProperties()
